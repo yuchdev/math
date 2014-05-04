@@ -1,0 +1,90 @@
+\section{Дифференцируемые функции и дифференциал. Приближенное вычисление значений функций}
+
+\subsection{Дифференцируемые функции и дифференциал}
+
+Дифференциал вычисляется просто умножением производной функции на $ dx $
+
+$$
+dy = y'dx
+$$
+
+Приращение функции это разность
+$$
+\Delta y = y(x + \Delta x) - y(x)
+$$
+
+\subsubsection{Пример 1}
+
+$ f(x) = x^{2}, x = 2, \Delta x = 0,1 $
+
+Вычислить дифференциал и приращение $ df(2), \Delta f(2) $
+
+$ f'(x) = 2x, f'(2) = 4 $
+
+$ df(x)= 2x dx = 4 \cdot 0,1 = 0,4 $
+
+$ \Delta f(x) = (x + \Delta x)^{2} - x^{2} = 2x \Delta x + \Delta x^{2} $
+
+$ \Delta f(2) = 4 \cdot 0,1 + 0,01 = 0,41 $
+
+Вычислим абсолютную и относительную погрешность
+
+$ \Delta = | \Delta f(2) - df(2) | = 0,01 $
+
+$ \delta = \dfrac{\Delta}{\Delta f(2)} = 0,024 $
+
+\subsubsection{Абсолютная и относительная погрешность}
+
+Абсолютная погрешность
+$$
+\Delta x = |x_{meas}-x_{true}| \label{absolute_err}
+$$
+
+Относительная погрешность 
+$$
+\delta x =  \dfrac{\Delta x}{x_{true}} \label{relative_err}
+$$
+
+\subsection{Приближенное вычисление значений функций}
+
+$$
+f(x_{0}+\Delta x)\approx f(x_{0}) + f'(x_{0}) \Delta x \label{approx_function}
+$$
+
+\subsubsection{Пример 1}
+
+$ f(x) = \sin x $
+
+$ f(30^{\circ} 12') - ? $
+
+Ближайшее значение $ f(x_0) = \dfrac{\pi}{6} $
+
+$ f(x_0) = \dfrac{1}{2} $
+
+$ f'(x_0) = \dfrac{\sqrt{3}}{2} $
+
+$ \Delta x = 12' = \dfrac{12 \pi}{180 \cdot 60} $
+
+$ f(x) = f(x_0) + f'(x_0) \Delta x $
+
+$ f(x) = \dfrac{1}{2} + \dfrac{\sqrt{3}}{2} \dfrac{12 \pi}{180 \cdot 60} $
+$ = \dfrac{1}{2} + \dfrac{\sqrt{3}\pi}{1800} = \dfrac{900+\sqrt{3}\pi}{1800} $
+
+\subsubsection{Пример 2}
+
+Площаю круга $ S = \pi r^{2}; r = 3,2; |\Delta r| = 0,05 $,
+
+где $ \Delta r $ -- допустимая погрешность радиуса
+
+Вычислить абсолютную $ |\Delta S| $ и относительную $ \dfrac{|\Delta S|}{S} $ погрешность площади.
+
+$ |\Delta S| \approx |dS| = S'(r)dr $
+
+$ S'(r) = 2 \pi r $
+
+$ dr = 0,05 $
+
+$ |\Delta S| = dS = 2 \pi \cdot 3,2 \cdot 0,05 = 0,32 \pi $
+
+$ \dfrac{|\Delta S|}{S} = \dfrac{|\Delta S|}{\pi r^{2}} = \dfrac{0,32 \pi}{10,24 \pi} = 0,03125 $
+

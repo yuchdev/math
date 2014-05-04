@@ -1,0 +1,131 @@
+\section{Семинар: Предел функции}
+
+\subsection{Замечательные пределы}
+
+\subsubsection{Первый замечательный предел}
+
+$\lim\limits_{x \to 0}\dfrac{\sin x}{x} = 1$
+
+
+Следствия:
+
+\begin{itemize}
+\item 
+$\lim\limits_{x \to 0}\dfrac{\mathrm{tg} x}{x} = 1$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{\arcsin x}{x} = 1$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{\mathrm{arctg} x}{x} = 1$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{1 - \cos x}{ \frac{x^2}{2} } = 1$
+\end{itemize}
+
+\subsubsection{Второй замечательный предел}
+
+$\lim\limits_{x \to \infty}\left(1 + \frac{1}{x}\right)^x = e$
+
+Следствия:
+
+\begin{itemize}
+\item 
+$\lim\limits_{u \to 0}(1 + u)^\frac{1}{u}=e$
+
+\item 
+$\lim\limits_{x \to \infty}\left(1 + \frac{k}{x}\right)^x = e^k$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{\ln(1 + x)}{x} = 1$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{e^x - 1}{x} = 1$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{a^x - 1}{x \ln a} = 1$ для $a > 0 \,\!$, $a \neq 1 \,\!$
+
+\item 
+$\lim\limits_{x \to 0}\dfrac{(1 + x)^\alpha - 1}{\alpha x} = 1$
+
+\end{itemize}
+
+\subsection{Паттерны тривиальных пределов}
+
+\begin{enumerate}
+\item 
+Присутствуют радикалы - домножаем на сопряженное
+$\lim\limits_{x\to x_0} \sqrt{a} - \sqrt{b} = 
+\frac{(\sqrt{a} - \sqrt{b})(\sqrt{a} + \sqrt{b})}{(\sqrt{a} + \sqrt{b})} =
+\frac{a - b}{(\sqrt{a} + \sqrt{b})}  = \cdots $
+
+\item 
+Сложная функция - используем предельный переход в сложных функциях
+$ \lim\limits_{x\to x_0} \log_a{f(x)} =  \log_a {\lim_{x\to x_0} {f(x)} } =  $ \\
+$ \lim\limits_{x\to x_0} e^{f(x)} =  e^ {\lim_{x\to x_0} {f(x)} }  $
+
+\end{enumerate}
+
+
+\subsection{Пример 1. Замена переменной}
+
+$ \lim\limits_{x\to 0} \dfrac{ \sqrt[5]{32+x} - 2 }{x} $
+
+Замена переменных:
+
+$ y = \sqrt[5]{32+x} - 2 $
+
+$ y^{5} = 32+x $
+
+$ x = y^{5} - 32 $
+
+$ x \to 0, y \to 2 $
+
+В результате замены:
+
+$ \lim\limits_{x\to 0} \dfrac{ \sqrt[5]{32+x} - 2 }{x} = $
+$ \lim\limits_{y\to 2} \dfrac{ y - 2 }{ y^{5} - 32 } =  $
+$ \lim\limits_{y\to 2} \dfrac{ y - 2 }{ (y - 2)(y^{4}-2y^{3}+4y^{2}+8+16) } = \dfrac{1}{80}  $
+
+\subsection{Паттерны сведения к замечательным пределам}
+
+\subsubsection{Пример 2. Сведение к первому замечательному пределу}
+
+Если есть синус, все просто
+$ \lim\limits_{x\to 0} \dfrac{ \sin{\alpha x} }{x} = \alpha $
+
+\subsubsection{Пример 3. Сведение к первому замечательному пределу}
+
+Любые тригонометрические выражения нужно стараться свести к
+1 ЗП с помощью тригонометрических формул.
+
+$ \lim\limits_{x\to 0} \dfrac{ \cos{3x} - \cos{7x}}{x^{2}} = $
+$ \lim\limits_{x\to 0} -2 \dfrac{\sin{5x}}{x} \dfrac{\sin{2x}}{x} = -20 $
+(по формуле разности косинусов)
+
+\subsubsection{Пример 3. Замена переменных в тригонометрических выражениях}
+
+$ \lim\limits_{x\to \frac{\pi}{4} } \mathrm{ctg}(2x)  \mathrm{ctg}( \frac{\pi}{4} - x)  $
+
+Замена переменных:
+
+$ x = \frac{\pi}{4} $
+
+$ y \to 0 $
+
+$ x = \frac{\pi}{4} - y $
+
+$ 2x = \frac{\pi}{2} - 2y $
+
+В результате замены:
+
+$ \lim\limits_{x\to \frac{\pi}{4} } \ctg{2x}   \ctg( \frac{\pi}{4} - x) = $
+$ \lim\limits_{x\to \frac{\pi}{4} } \ctg(\frac{\pi}{2} - 2y)  \ctg{y} = $
+$ \lim\limits_{x\to \frac{\pi}{4} } 
+\dfrac{\sin(\frac{\pi}{2} - 2y)}{\cos(\frac{\pi}{2} - 2y)}
+\dfrac{\cos{y} }{\sin{y} } = $
+
+По формуле сдвига на $ \dfrac{\pi}{2} $ 
+
+$ = \dfrac{\sin{2y} }{\cos{2y} } \dfrac{\cos{y} }{\sin{y} } = $
+$ \dfrac{\sin{2y} }{\sin{y} } = 2 $

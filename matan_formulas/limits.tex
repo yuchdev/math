@@ -1,0 +1,161 @@
+\section{Пределы}
+
+\subsection{Основы}
+
+$P(n)=a_1 x^n + a_2 x^{n-1} + \cdots + a_{n-1}x +  a_{n}$ \\
+$P(m)=a_1 x^m + a_2 x^{m-1} + \cdots + a_{m-1}x +  a_{m}$ \\
+
+$n < m: 
+\lim\limits_{x\to \infty} \frac{P(n)}{P(m)} = 0 $\\
+
+$n = m: 
+\lim\limits_{x\to \infty} \frac{P(n)}{P(m)} = C $\\
+
+$n > m: 
+\lim\limits_{x\to \infty} \frac{P(n)}{P(m)} = \infty $\\
+
+\subsection{Основные паттерны вычисления пределов}
+
+\begin{enumerate}
+\item 
+$\lim\limits_{x\to x_0} \sqrt{a} - \sqrt{b} = 
+\frac{(\sqrt{a} - \sqrt{b})(\sqrt{a} + \sqrt{b})}{(\sqrt{a} + \sqrt{b})} =
+\frac{a - b}{(\sqrt{a} + \sqrt{b})}  = \cdots $
+
+\item 
+$ \lim\limits_{x\to x_0} \log_a{f(x)} =  \log_a {\lim\limits_{x\to x_0} {f(x)} } =  $
+
+\item 
+$ \lim\limits_{x\to x_0} e^{f(x)} =  e^ {\lim\limits_{x\to x_0} {f(x)} }  $ \\
+
+\item 
+If $ \exists  \alpha(x), \beta(x) $:
+
+$ \lim\limits_{x \to 0 } \alpha(x) = 0 $
+
+$ \lim\limits_{x \to 0 } \beta(x) = 0 $
+
+$ \lim\limits_{x \to a } \dfrac{\alpha(x)}{\beta(x)} = A $:
+
+$
+\lim\limits_{x \to a } \left( 1 + \alpha(x)  \right )^{\frac{1}{\beta(x)}} = e^{A}
+$
+
+\end{enumerate}
+
+\subsection{Замечательные пределы}
+
+1. $ \lim\limits_{x\to 0} \frac{\sin{x}}{x} = 0$ $ (\lim\limits_{x\to 0} \frac{\tg{x}}{x} = 0) $ \\
+2. $ \lim\limits_{x\to 0} (1 + 1/x)^x = e $ \\
+3. $ \lim\limits_{x\to 0} \frac{\ln{(1+x)}}{x} = 1 $ \\
+4. $ \lim\limits_{x\to 0} \frac{a^x + 1}{x} = \ln{a} $ \\
+5. $ \lim\limits_{x\to 0} \frac{(1 + x)^a - 1}{x} = a $ \\
+
+\subsection{О-нотация (символы Ландау)}
+
+$f = o(g) \Leftrightarrow \lim\limits_{n \to 0} \frac{f(x)}{g(x)} = 0$ \\
+e.g. $g(x) >> f(x)$ in $U_x$ \\
+
+$f = O(g) \Leftrightarrow |f(n)| \le C|g(n)|q $ \\
+e.g. $g(x) $ limited by $ f(x)$ in $U_x$ \\
+
+$f \equiv g \Leftrightarrow \lim\limits_{n \to 0} \frac{f(x)}{g(x)} = 1 $ \\
+e.g. $g(x)$ and $f(x)$ are equial \\
+
+\subsection{Формулы О-нотации}
+
+$o(f)+o(g) = o(f)$
+
+$o(f) \cdot o(g) = o(f \cdot g)$
+
+$o(o(f)) = o(f)$
+
+$o(f)+O(f) = O(f)$
+
+$o(f) \cdot O(f) = O(f \cdot g)$
+
+$O(f) \cdot O(g) = O(f \cdot g)$
+
+$O(o(f)) = o(f)$ \\\\
+
+$ \alpha < \beta $ \\
+$x^{\alpha} = o(x^{\beta}, x\to \infty ) $ \\
+$x^{\beta} = o(x^{\alpha}, x\to 0 )$ \\
+
+\subsubsection{Примеры}
+
+$ f(x) = o( 1 ) $ \\
+$ x = o( x^2 ), x\to \infty $ \\
+$ x^2 = o( x ), x\to 0 $ \\
+
+\subsection{Таблица эквивалентностей}
+
+$\sin\alpha(x)\thicksim\alpha(x);$
+
+$ \tg \alpha(x)\thicksim\alpha(x);$
+
+$\arcsin{\alpha(x)}\thicksim\alpha(x);$
+
+$\mathrm{arctg}\,\alpha(x)\thicksim\alpha(x);$
+
+$\log_a(1+\alpha(x))\thicksim\alpha(x)\cdot\frac{1}{\ln{a}}$, где $a>0$;
+
+$\ln(1+\alpha (x))\thicksim\alpha(x);$
+
+$a^{\alpha(x)}-1\thicksim\alpha(x)\cdot\ln{a}$, где $a>0$;
+
+$e^{\alpha(x)}-1\thicksim\alpha(x);$
+
+$1-\cos{\alpha(x)}\thicksim\frac{\alpha^2(x)}{2};$
+
+$(1+\alpha(x))^\mu-1\thicksim\mu\cdot\alpha(x),\quad\mu\in R$, поэтому используют выражение:
+
+: $\sqrt[n]{1+\alpha(x)}\approx\frac{\alpha(x)}{n}+1$, где $\alpha(x)\xrightarrow[x\to x_0]{}0$.
+\subsection{Формула Тейлора}
+
+$$
+f(x) = \sum_{k = 0}^{n - 1} \frac{f^{(k)} (a)}{k!} (x - a)^k + R_n(x), x \in (a, b)
+$$
+$$
+R_n(x) = \frac{f^{(n)}(a + \Theta(x - a))}{n!} 
+$$
+
+\subsection{Ряды Тейлора}
+
+1. $e^x = 1 + x + \frac{x^2}{x!} + \frac{x^3}{3!} + \cdots + \frac{x^n}{n!} + o(x^n) $ \\
+2. $ \sin{x} = x - \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots + (-1)^{n-1}\frac{x^{2n-1}}{(2n-1)!} + o(x^{2n}) $ \\
+3. $ x = x - \frac{x^2}{2!} + \frac{x^4}{4!} + \cdots + (-1)^n\frac{x^{2n}}{(2n)!} + o(x^{2n+1}) $ \\
+4. $ (1+x)^n = 1 + mx + x^2\frac{m(m-1)}{2!} + x^n\frac{m(m-1)\cdots(m-n+1)}{n!} + o(x^n), x \in (-1,1) $ \\
+5. $ \ln(x + 1) = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots + (-1)^{n-1}\frac{x^n}{n} + o(x^n), x \in (-1,1) $ \\
+
+\subsection{Пределы и производные }
+
+1. $\lim\limits_{h\to 0}{f(x+h)-f(x)\over h}=f'(x)$ \\
+2. $\lim\limits_{h\to0}\left(\frac{f(x+h)}{f(x)}\right)^\frac{1}{h}=\exp\left(\frac{f'(x)}{f(x)}\right)$ \\
+3. $\lim\limits_{h \to 0}{ \left({f(x(1+h))\over{f(x)}}\right)^{1\over{h}} }=\exp\left(\frac{x f'(x)}{f(x)}\right)$ \\
+
+\subsection{Примеры пределов}
+
+$\lim\limits_{x\to+\infty} \left(1+\frac{k}{x}\right)^{mx}=e^{mk} $ \\
+$\lim\limits_{x\to+\infty} \left(1-\frac{1}{x}\right)^x=\frac{1}{e} $ \\
+$\lim\limits_{x\to+\infty} \left(1+\frac{k}{x}\right)^x=e^k $ \\
+$\lim\limits_{n\to\infty} \frac{n}{\sqrt[n]{n!}}=e $ \\
+$\lim\limits_{n\to \infty }\, 2^{n} \underbrace{\sqrt{2-\sqrt{2+\sqrt{2+\text{...} +\sqrt{2}}}}}_n= \pi $ \\
+
+\subsection{Пределы логарифмической и экспоненциальной функции}
+
+$\mbox{For } a > 1: \, $ \\
+$\lim\limits_{x \to 0^+} \log_a x = -\infty$ \\
+$\lim\limits_{x \to \infty} \log_a x = \infty$ \\
+$\lim\limits_{x \to -\infty} a^x = 0 $ \\
+$\mbox{If } a < 1: \, $ \\
+$\lim\limits_{x \to -\infty} a^x = \infty $ \\
+
+\subsection{Пределы тригонометрических функций}
+
+$\lim\limits_{x \to a} \sin x = \sin a $ \\
+$\lim\limits_{x \to a} \cos x = \cos a $ \\
+$\lim\limits_{x \to 0} \frac{\sin x}{x} = 1 $ \\
+$\lim\limits_{x \to 0} \frac{1-\cos x}{x} = 0 $ \\
+$\lim\limits_{x \to 0} \frac{1-\cos x}{x^2} = \frac{1}{2} $ \\
+$\lim\limits_{x \to n^\pm} \tan \left(\pi x + \frac{\pi}{2}\right) = \mp\infty \qquad \text{for any integer } n $ \\

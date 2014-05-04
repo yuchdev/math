@@ -1,0 +1,296 @@
+\section{Семинар: Числовая последовательность и ее предел}
+
+\subsection{Доказательство существования предела по определению}
+
+Докажем, что $ a = \lim\limits_{n \to \infty} \dfrac{1}{q^{n}} = 0$
+
+по определению предела числовой последовательности
+
+$\forall \varepsilon > 0 \exists N: \forall n: n > N \Rightarrow |x_{n} - a| < \varepsilon$
+
+Т.е. в нашем случае $  |x_{n} - a| = |x_{n} - 0| = | \dfrac{1}{q^{n}} | = \dfrac{1}{q^{n}} $
+
+Прибавим и отнимем единицу 
+
+$ \dfrac{1}{q^{n}} = 1 + \left( \dfrac{1}{q} - 1 \right)  $
+
+По неравенству Бернулли
+
+$ 1 + ( \dfrac{1}{q} - 1 )^{n} > 1 + n ( \dfrac{1}{q} - 1 ) > n ( \dfrac{1}{q} - 1 ) $
+
+$ q^{n} <  \dfrac{1}{n ( \dfrac{1}{q} - 1 )}  $
+
+$ q^{n} <  \dfrac{q}{n - nq} = \dfrac{q}{n(1 - q)} $
+
+Т.е. $ \forall n > \dfrac{q}{n(1 - q)} : | \dfrac{1}{q^{n}} | < \varepsilon $
+
+Т.е. 0 - является пределом
+
+Также, если $ n < 1 $, данное утверждение неверно, и предел 
+$ \lim\limits_{n \to \infty} \dfrac{1}{q^{n}} = \infty $
+
+\subsection{Найти число N, начиная с которого последовательность сходится}
+
+$ \lim\limits_{n \to \infty} \dfrac{9n + 7}{2n - 3} = \dfrac{9}{2}, \varepsilon = 10^{-2}$
+
+найдем N, начиная с которого $  |x_{n} - a| < \varepsilon $
+
+$ |x_{n} - a| = \left|  \dfrac{9n + 7}{2n - 3} - \dfrac{9}{2} \right| = $
+$ \left|  \dfrac{41}{2(2n - 3)} \right| < \varepsilon $
+
+Разрешим неравенство относительно n
+
+$ \left|  \dfrac{41}{4n - 6} \right| < \varepsilon $
+
+$ \dfrac{41}{4n} - \dfrac{41}{6}  < \varepsilon $
+
+$ \dfrac{41}{4n} < \varepsilon + \dfrac{41}{6}$
+
+$ n < \dfrac{4}{41}\varepsilon + \dfrac{4}{41}\dfrac{41}{6}$
+
+Возведем в $ -1 $ степень
+
+$ n > \dfrac{41}{4}\varepsilon + \dfrac{3}{2}$
+
+Если $ \varepsilon = 10^{-2} $, то $ N(\varepsilon) = \dfrac{4100}{4} + \dfrac{3}{2} = 1028.5 $
+
+$ N = 1029 $
+
+\subsection{Пределы многочленов (общий подход)}
+
+Пусть $ P(m), P(n) $ - многочлены $ m $ и $ n $ степени соотетственно
+
+$P(n)=a_1 x^n + a_2 x^{n-1} + \cdots + a_{n-1}x +  a_{n}$ \\
+
+$P(m)=a_1 x^m + a_2 x^{m-1} + \cdots + a_{m-1}x +  a_{m}$ \\
+
+Тогда
+
+$n < m: \lim\limits_{x\to \infty} \dfrac{P(n)}{P(m)} = 0 $
+
+$n = m: \lim\limits_{x\to \infty} \dfrac{P(n)}{P(m)} = C $
+
+$n > m: \lim\limits_{x\to \infty} \dfrac{P(n)}{P(m)} = \infty $
+
+\subsection{Пределы с выражениями под знаком радикала (общий подход)}
+
+$\lim\limits_{x\to x_0} \sqrt{a} - \sqrt{b} = 
+\dfrac{(\sqrt{a} - \sqrt{b})(\sqrt{a} + \sqrt{b})}{(\sqrt{a} + \sqrt{b})} =
+\dfrac{a - b}{(\sqrt{a} + \sqrt{b})}  = \cdots $
+
+\subsection{Пределы с выражениями под знаком логарифма(экспоненты) (общий подход)}
+
+$ \lim\limits_{x\to x_0} \log_a{f(x)} =  \log_a {\lim\limits_{x\to x_0} {f(x)} }  $
+
+$ \lim\limits_{x\to x_0} e^{f(x)} =  e^ {\lim\limits_{x\to x_0} {f(x)} }  $
+
+\subsection{Пределы с заданной рядом формулой общего члена (Примеры)}
+
+\subsubsection{Пример. Найти предел}
+
+Пусть общий член задан формулой
+
+$ x_{n} = \dfrac{1}{1 \cdot 2} + \dfrac{1}{2 \cdot 3} + \ldots + \dfrac{1}{n (n+1)}$
+
+Общий подход - разложим каждый член так, чтобы их можно было сократить
+
+$ x_{n} =  \left( 1 - \dfrac{1}{2} \right) +
+\left(  \dfrac{1}{2} - \dfrac{1}{3} \right) +
+\left(  \dfrac{1}{3} - \dfrac{1}{4} \right) +
+\ldots +
+\left(  \dfrac{1}{n} - \dfrac{1}{n+1} \right) =
+ $
+ 
+ Сокращаем все слагаемые
+ 
+ $ = 1 - \dfrac{1}{n+1} $
+ 
+ Очевидно $ \lim\limits_{n \to \infty} x_{n} = 1 - \dfrac{1}{n+1} = 1 $
+
+\subsubsection{Пример. Найти предел}
+
+$ x_{n} = \dfrac{2^{n}}{2!} $
+
+найдем путем оценки n-го члена и предельного перехода в неравенствах
+
+$ \dfrac{2^{n}}{2!} = \dfrac{2}{1}\dfrac{2}{2}\dfrac{2}{3} \ldots \dfrac{2}{n} $
+
+Произведем оценку сверху, заменив все члены начиная с 3-го на $ \dfrac{2}{3} $
+
+$ \dfrac{2}{1}\dfrac{2}{2}\dfrac{2}{2} \ldots \dfrac{2}{n} <
+\dfrac{2}{1}\dfrac{2}{2}\dfrac{2}{3}\dfrac{2}{3} \ldots \dfrac{2}{3} = 
+\dfrac{9}{2} \left( \dfrac{2}{3} \right)^{n}
+$
+
+Очевидно
+
+$ 0 < \dfrac{2^{n}}{2!} < \dfrac{9}{2} \lim\limits_{n \to \infty} \left( \dfrac{2}{3} \right)^{n} $
+
+Правый предел равен 0, следовательно по "лемме о милиционерах"
+
+$ \lim\limits_{n \to \infty} x_{n} = \dfrac{2^{n}}{2!} = 0 $
+
+\subsubsection{Пример. Найти предел}
+
+
+Пусть общий член задан формулой
+
+$ x_{n} = \dfrac{1 + a + a^{2} + a^{3} + \ldots + a^{n}}{1 + b + b^{2} + b^{3} + \ldots + b^{n}}$
+
+$ |a| < 1, |b| < 1 $
+
+По формуле о сумме бесконечно убывающей геометрической прогрессии
+
+$$
+S = \dfrac{b_{1}}{1 - q}
+$$
+
+$ x_{n} = \dfrac{1 + a + a^{2} + a^{3} + \ldots + a^{n}}{1 + b + b^{2} + b^{3} + \ldots + b^{n}}
+= \dfrac{1 - b}{1 - a}
+$
+
+Заметим, что получившееся выражение не зависит от $ n $, поэтому
+
+$ \lim\limits_{n \to \infty}  \dfrac{1 - b}{1 - a} =  \dfrac{1 - b}{1 - a} $
+
+
+\subsubsection{Пример. Найти предел}
+
+Пусть общий член задан формулой
+
+$ x_{n} = \dfrac{1^{2}}{n^{3}} + 
+\dfrac{2^{2}}{n^{3}} + 
+\ldots +
+\dfrac{(n-1)^{2}}{n^{3}}
+ $
+
+Вынесем $ \frac{1}{n^{3}} $ за скобки
+
+$ x_{n} = \dfrac{1}{n^{3}} (1^{2} + 2^{2} + \ldots + (n-1)^{2}) $
+
+Воспользуемся формулой для суммы квадратов
+
+$ (1^{2} + 2^{2} + \ldots + (n-1)^{2}) = 
+\dfrac{(n - 1)((n - 1) + 1)(2(n-1) + 1)}{6} = 
+\dfrac{n(n - 1)(2n -1)}{6}
+$
+
+$ \lim\limits_{n \to \infty} x_{n} = \dfrac{1}{n^{3}} \dfrac{n(n - 1)(2n -1)}{6}
+= \dfrac{2n^{3}-3n^{2}-n}{6n^{3}} = \dfrac{1}{3}
+$
+
+
+\subsubsection{Пример. Найти предел}
+
+Пусть общий член задан формулой
+
+$ x_{n} = \sqrt{2} \sqrt[4]{2} \sqrt[8]{2} \ldots \sqrt[2^{n}]{2} $
+
+Немного преобразуем
+
+$ \sqrt{2} \sqrt[4]{2} \sqrt[8]{2} \ldots \sqrt[2^{n}]{2} =
+2^{\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \ldots + + \frac{1}{2^{n}}}
+$
+
+Показатель - убывающая геометрическая прогрессия
+
+По формуле о сумме бесконечно убывающей геометрической прогрессии
+
+$S = \dfrac{b_{1}}{1 - q} = \dfrac{1/2}{1 - 1/2} = 1$
+
+$  \lim\limits_{n \to \infty} x_{n} = 
+\sqrt{2} \sqrt[4]{2} \sqrt[8]{2} \ldots \sqrt[2^{n}]{2} = 
+2^{1} = 2 $
+
+
+\subsection{Доказательство сходимости или расходимости последовательности по критерию Коши (Примеры)}
+
+\subsubsection{Пример. Доказать сходимость}
+
+$ x_{n} = 1 +
+\dfrac{1}{2^{2}} + 
+\dfrac{1}{3^{2}} + 
+\ldots +
+\dfrac{1}{n^{2}}
+$
+
+Согласно критерию Коши
+
+$ \forall \varepsilon > 0 \exists N: \forall n,m > N \Rightarrow |x_{n} - x_{m}| < \varepsilon $
+
+Пусть n-й член последовательности $ x_{n} $, 
+m-й член последовательности 
+
+$ x_{n+p} = 1 + \dfrac{1}{2^{2}} + 
+\dfrac{1}{3^{2}} + 
+\ldots +
+\dfrac{1}{(n+p)^{2}} $
+
+Тогда по критерию Коши
+
+$ |x_{n+p} - x_{n}| = 
+\dfrac{1}{(n+1)^{2}} +
+\dfrac{1}{(n+2)^{2}} +
+\ldots +
+\dfrac{1}{(n+p)^{2}} $
+
+Оценим выражение сверху, заменив каждый делитель на меньший (один из множителей минус 1)
+
+$ 
+\dfrac{1}{(n+1)^{2}} +
+\dfrac{1}{(n+2)^{2}} +
+\ldots +
+\dfrac{1}{(n+p)^{2}}
+<
+\dfrac{1}{n(n+1)} +
+\dfrac{1}{(n+2)(n+1)} +
+\ldots +
+\dfrac{1}{(n+p)(n+p-1)}
+$
+
+Воспользуемся приемом сокращения, разложим каждое слагаемое на множители 
+($ \frac{1}{AB} = \frac{1}{B} - \frac{1}{A} $)
+
+$
+\dfrac{1}{n(n+1)} +
+\dfrac{1}{(n+2)(n+1)} +
+\ldots +
+\dfrac{1}{(n+p)(n+p-1)} =
+$
+
+$
+=
+\left( \dfrac{1}{n} - \dfrac{1}{n+1} \right) +
+\left( \dfrac{1}{n+1} - \dfrac{1}{n+2} \right) +
+\ldots +
+\left( \dfrac{1}{n+p-1} - \dfrac{1}{n+p} \right)
+=
+\dfrac{1}{n} - \dfrac{1}{n+p} < \dfrac{1}{n} < \varepsilon
+$
+
+Таким образом, мы нашли $ N $, зависящую от $ \varepsilon $, а именно
+
+$ N(\varepsilon) > \dfrac{1}{\varepsilon} $
+
+, что выполняется критерий Коши
+
+\subsubsection{Пример. Доказать рассходимость}
+
+$ x_{n} = 1 +
+\dfrac{1}{2} + 
+\dfrac{1}{3} + 
+\ldots +
+\dfrac{1}{n}
+$
+
+Сформируем логически обратное условие заменой кванторов и знака в нервенстве
+
+Прямое:
+
+$ \forall \varepsilon > 0 \exists N: \forall n,m > N \Rightarrow |x_{n} - x_{m}| < \varepsilon $
+
+Обратное:
+
+$ \exists \varepsilon > 0 \forall N: \exists n,m > N \Rightarrow |x_{n} - x_{m}| > \varepsilon $
+
+Далее - как в предыдущем примере

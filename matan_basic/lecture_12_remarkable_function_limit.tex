@@ -1,0 +1,116 @@
+\section{Семинар: Предел функции. Замечательные пределы}
+
+\subsection{Обобщение 2го ЗП}
+
+При решении многих пределов полезно использовать соледующий паттерн:
+
+Если $ \exists  \alpha(x), \beta(x) $ такие, что 
+
+$ \lim\limits_{x \to 0 } \alpha(x) = 0 $
+
+$ \lim\limits_{x \to 0 } \beta(x) = 0 $
+
+$ \lim\limits_{x \to a } \dfrac{\alpha(x)}{\beta(x)} = A $
+
+$$
+\lim\limits_{x \to a } \left( 1 + \alpha(x)  \right )^{\frac{1}{\beta(x)}} = e^{A}
+$$
+
+\subsection{Пример 1}
+
+$ \lim\limits_{x \to 0} (1 - \tg^{2}x)^{1/\sin^{2}2x}  = $
+$ \lim\limits_{x \to 0} (1 + ( - \tg^{2}x ) )^{1/\sin^{2}2x}$
+
+Проверим выполнимость условий
+
+$ \lim\limits_{x \to 0} \tg^{2}x = \lim\limits_{x \to 0} \sin^{2}2x  = 0$
+
+$ \lim\limits_{x \to 0} \dfrac{- \tg^{2}x}{ \sin^{2}2x } = $
+$ \dfrac{- x^{2}}{ 4x^{2} } = - \dfrac{1}{4}$
+(по эквивалентностям БМФ)
+
+
+
+$ \lim\limits_{x \to 0} (1 - \tg^{2}x)^{1/\sin^{2}2x}  = e^{-\frac{1}{4}}$
+
+\subsection{Пример 2}
+
+Выражения со сложным показателем степени нужно стараться приводить к виду
+$ \lim\limits_{x \to a } \left( 1 + \alpha(x)  \right )^{\frac{1}{\beta(x)}} $
+
+Например
+
+$ \lim\limits_{x \to 0} (\cos x)^{\frac{1}{x^{2}}} = $
+$ \lim\limits_{x \to 0} (1 + (1- \cos x))^{\frac{1}{x^{2}}} =$
+$ \lim\limits_{x \to 0} ((1 - 2 \sin^{2} \dfrac{x}{2} ))^{\frac{1}{x^{2}}} = $
+
+Проверим выполнимость условий
+
+$ \lim\limits_{x \to 0} \sin^{2} \dfrac{x}{2} = \lim\limits_{x \to 0} x^{2} = 0 $
+
+$ \lim\limits_{x \to 0} \dfrac{ 2 \sin^{2} \dfrac{x}{2} }{ x^{2}} =  $
+$ \lim\limits_{x \to 0} \dfrac{ 2 \dfrac{x^{2}}{4} }{ x^{2}} = -\dfrac{1}{2} $
+
+$ \lim\limits_{x \to 0} (\cos x)^{\frac{1}{x^{2}}} = e^{-\frac{1}{2}}$
+
+\subsection{Пример 3}
+
+Дроби с показателем степени удобно разбивать на два вырежения вида
+$ \lim\limits_{x \to a } \left( 1 + \alpha(x)  \right )^{\frac{1}{\beta(x)}} $
+
+
+Например
+
+$ \lim\limits_{x \to \infty } \left( \dfrac{ 2x^{2}+3 }{ 2x^{2}-1 }  \right)^{x^{2}} = $
+
+Введем замену переменных $ t = \dfrac{1}{x^{2}} $
+
+$ \lim\limits_{x \to \infty } \left( 
+\dfrac{ 1+\frac{3}{2x^{2}} }{ 1- \frac{1}{2x^{2}}  }  
+\right)^{x^{2}} = $
+$ \lim\limits_{t \to 0 } \left( 
+\dfrac{ 1 + 3/2t }{ 1 - 1/2t }  
+\right)^{\frac{1}{t}} = $
+$ 
+\dfrac
+{ \lim\limits_{t \to 0 } (1 + 3/2t)^{\frac{1}{t}} }
+{ \lim\limits_{t \to 0 } (1 - 1/2t)^{\frac{1}{t}} } = $
+
+Вычислим по отдельности
+
+$ \lim\limits_{t \to 0 } \dfrac{3/2 t}{t} = 3/2 $
+
+$ \lim\limits_{t \to 0 } - \dfrac{1/2 t}{t} = -1/2 $
+
+$ \lim\limits_{x \to \infty } \left( \dfrac{ 2x^{2}+3 }{ 2x^{2}-1 }  \right)^{x^{2}} 
+= e^{\frac{3}{2}-(-\frac{1}{2})} = e^{2}$
+
+\subsection{Пример 4. Пределы на $ +\infty /-\infty$}
+
+На $ +\infty $ считается так же, как и на $ \infty $.
+
+На $ -\infty $ делаем замену переменных $ x = -t $ и дальше считаем как на  $ +\infty $.
+
+\subsubsection{На $ +\infty $}
+
+$ \lim\limits_{x \to +\infty } \dfrac{ \sqrt{x^{2}+14} + x }{ \sqrt{x^{2}-2} + x } = $
+$ \lim\limits_{x \to +\infty } \dfrac{ \sqrt{1+14/x^{2}} + 1 }{ \sqrt{1-2/x^{2}} + 1 } = 1 $ \\\\
+
+
+\subsubsection{И на $ -\infty $}
+
+
+$ \lim\limits_{x \to -\infty } \dfrac{ \sqrt{x^{2}+14} + x }{ \sqrt{x^{2}-2} + x } $
+
+Введем замену переменных $ t = -x $
+
+$ \lim\limits_{x \to -\infty } \dfrac{ \sqrt{x^{2}+14} + x }{ \sqrt{x^{2}-2} + x } = $
+$ \lim\limits_{t \to +\infty } \dfrac{ \sqrt{t^{2}+14} - t }{ \sqrt{t^{2}-2} - t } $
+
+Решается домножением на сопряженные или по правилу Лопиталя.
+
+$ \lim\limits_{t \to +\infty } \dfrac{ \sqrt{t^{2}+14} - t }{ \sqrt{t^{2}-2} - t } = $
+$ \lim\limits_{t \to +\infty }
+\dfrac
+{ (\sqrt{t^{2}+14} - t)(\sqrt{t^{2}+14} + t)(\sqrt{t^{2}-2} - t) }
+{ (\sqrt{t^{2}-2} - t)(\sqrt{t^{2}+14} + t)(\sqrt{t^{2}-2} - t) } = -7$
