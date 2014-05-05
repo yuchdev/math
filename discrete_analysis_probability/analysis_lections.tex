@@ -1,0 +1,109 @@
+\documentclass[12pt]{book}
+ 
+\usepackage{lineno}
+\usepackage[utf8]{inputenc}
+
+\usepackage[all]{xy}
+
+\usepackage{geometry} 
+\geometry{a4paper}
+\geometry{margin=1in} 
+
+
+\usepackage{graphicx} 
+
+ 
+\usepackage{array} 
+\usepackage{ulem} % underlines, double underlines, wavy underlines etc
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsfonts} % Натуральные числа и прочие множества красивыми буковками
+\usepackage{paralist} %списки: itemize, enumerate etc
+\usepackage{subfig} 
+\usepackage[english,russian]{babel} 
+ 
+
+\usepackage{fancyhdr} 
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{1pt}
+
+\renewcommand{\baselinestretch}{1.4}
+
+\lhead{Дискретный анализ и теория вероятностей }\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} 
+	
+\everymath{\displaystyle}
+\modulolinenumbers[3]
+
+
+%%% %%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} 
+
+
+%%%Theorems declarations here%%%
+  
+\newtheorem{alem}{Лемма} 
+\newtheorem{thm}{Теорема}
+\newtheorem{example}{Пример}
+\newtheorem{task}{Задача}
+\newtheorem*{erdesh}{Теорема Эрдеша-Ко-Радо}
+
+\newtheorem*{mainarithm}{Основная теорема арифметики}
+ 
+\newtheorem*{incexc}{Формула включений и исключений}
+\newtheorem*{harram}{Теорема Харди-Рамануджана}
+\newtheorem*{cyclestask}{Задача о циклических последовательностях}
+\newtheorem*{stirling}{Формула Муавра-Стирлинга}
+\newtheorem*{keli}{Формула Кэли}
+\newtheorem*{pantrkur}{Теорема Пантрягина-Куратовского}
+
+
+\newtheorem*{rem}{Замечание}
+\newtheorem*{solution}{Решение}
+
+\newtheorem*{cor}{Следствие} % Просто следствие
+
+%%%Всякие команды для удобства
+
+\newcommand\naturalset{\mathbb{N}}	%Множество натуральных чисел
+\newcommand\poset{\mathfrak{P}}		%Чум
+\newcommand\complexset{\mathbb{C}}	%Множество комплексных чисел
+\newcommand{\aset}{\mathbb{A}}
+
+%Флаги
+\newif\ifdraft  %Черновой вариант - с недоделанными и потерянными кусками конспекта, а также нумерация строчек.
+\drafttrue
+
+
+%Зависимости от флагов
+\ifdraft
+\linenumbers %номера строк для удобства.
+\fi
+%%% END Article customizations
+ 
+\title{Дискретный анализ и теория вероятности}
+\author{Курс Андрея Михайловича Райгородского}
+\date{2010-2011}  
+\begin{document} 
+
+\maketitle
+ 
+ 
+\input{lection1}
+
+\input{lection2}
+ 
+\input{lection4}
+
+\input{lection5}
+
+\newpage
+
+\input{short}
+
+\end{document}

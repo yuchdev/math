@@ -1,0 +1,428 @@
+
+\chapter{Лекция 2}
+\section{Общая формула обращения Мёбиуса}
+
+\subsection{Частично упорядоченное множество} 
+
+\begin{description}
+\item[Чум] - частично упорядоченное множество $ \poset $, на котором выполняется отношение частичного порядка  $ \preceq $ ("предшествует или равен") для некоторых пар элементов. 
+\end{description}
+
+Отношение частичного порядка подчиняется следующим аксиомам:
+
+\begin{enumerate}
+\item 
+$\forall a \in \poset: a
+\preceq
+a
+$
+\item
+$ a = b \Longleftrightarrow 
+\begin{cases}
+&a \preceq b \\
+&b \preceq a
+\end{cases}
+$
+
+\item
+$
+a \preceq b \& b \preceq c \Rightarrow a \preceq c
+$
+
+\end{enumerate}
+
+
+Примеры:
+
+\begin{itemize}
+\item Натуральные числа:  $\poset = \naturalset$, причём 
+$\preceq$ соответствует $\leq$
+ 
+\item Натуральные числа:  $\poset = \naturalset$, причём 
+$\preceq$ соответствует делимость.
+
+$x \preceq y \Leftrightarrow x | y $
+
+\item
+$
+V = \{ 1, 2, \dots , n\}, P = 2^V
+$ (множество всех подмножеств V, называемое также множество-степень) 
+
+$A, B \in P, \quad A \preceq
+B \Longleftrightarrow A \subset
+ B
+$
+\end{itemize}
+
+\subsection{Функция Мёбиуса на Чумах}
+
+\begin{rem} Отношение предшествования, строгое и нестрогое.
+
+$ \prec $ эквивалентно одновременному выполнению $\preceq $ и $\neq $.
+\end{rem}
+
+Можно ввести функцию Мёбиуса для произвольных ЧУМов рекуррентным путём для двух аргументов:
+ 
+
+
+\[
+\mu(x,x) = 1 \]
+
+\[
+\mu(x,y) = - \sum \limits _{
+z: x \preceq
+z \prec 
+y
+} \mu(x,z), \quad x \prec y 
+\]
+ 
+Пусть $ p_i $ --- простое число, а отношение частичного порядка --- делимость. Тогда:
+
+$
+\mu(1,1) = 1
+$
+
+$
+\displaystyle \mu(1,2) = -\sum \limits _{1 \preceq z \prec 2} \mu(1,z) = -1
+$
+
+$\displaystyle
+\mu(1,p) =  -\sum \limits _{1 \preceq z \prec p} \mu(1,z) = -1
+$
+ 
+ 
+
+$\displaystyle
+ \mu(1,p_1, p_2) = -\sum \limits _{z: 1, p_1, p_2} \mu(1,z)  =
+- ( 
+\underbrace {
+\mu (1,1) 
+} _{1}
++
+\underbrace {
+ \mu(1,p_1) 
+} _{-1}
++
+\underbrace{
+ \mu (1, p_2)
+} _{-1} 
+) 
+= 1
+$
+
+По индукции для $ p_1 p_2 \dots p_S $ легко показать, что: 
+
+$
+\mu(S) = (-1)^S
+$
+
+$
+\mu(1,p_1^{\alpha_1} \dots p_i^{\alpha_i} ) = 0 , \quad \exists \alpha_i > 1
+$
+
+Заметим также следующие случаи:
+
+$
+\mu(p^2) \substack {= -} _{z: 1,p} (
+\underbrace{
+	\mu(1)
+} _{1}
+ + 
+\underbrace{
+ \mu(p)
+ }
+ _{-1
+ }
+ )  = 0
+$
+
+$
+\mu(p^k q) = 0
+$ 
+
+\begin{rem}
+Мы можем также задать функцию для одного аргумента: $\displaystyle \mu(x,y) = \mu\bigg(\frac y x\bigg)$
+\end{rem}
+ 
+
+
+\subsection{Обобщение формулы обращения Мёбиуса для произвольных чумов}
+
+Пусть $\poset$ --- чум, в котором выполняется условие: каждый главный идеал конечен. В виде логической формулы это выглядит так:
+
+$\forall x \in \poset | \{ y \in \poset : y \preceq x\} | < \infty $ 
+
+Пусть также $f,g : \poset \mapsto \complexset, \quad g(y) = \sum \limits 
+_{x
+\preceq
+y
+}
+f(x)  $. Тогда:
+
+\[\displaystyle
+ f(y) = \sum \limits _{
+x \preceq
+y
+}
+\mu(x,y) g(x)
+\]
+
+
+Частный случай, с которым мы имели дело ранее ( для сравнения ):
+
+$
+\begin{aligned}
+g(n) = \sum \limits _{d|n} f(d) \Rightarrow 
+f(n)  &  = \sum \limits _{d | n} \mu(d) g \bigg ( \frac n d \bigg )=\\
+& = \sum \limits _{d|n} g(d) \mu \bigg ( \frac n d \bigg )
+\end{aligned}
+$
+
+
+
+
+\subsection{Вывод формулы включений и исключений из общей формулы обращения Мёбиуса}
+
+
+Рассмотрим произвольные множества $S_1, S_2,\dots, S_n $.
+Чум $\poset$ состоит из всех пересечений элементов $S_1, \dots , S_n$, то есть:
+
+$\displaystyle
+\poset = \bigg\{ \bigcap _{i \in I}S_i : I \subseteq \{ 1,2, \dots, n\} \bigg \}
+$
+
+Отношение упорядочивания, которое мы будем иметь в виду --- вложение. 
+$\preceq \Longleftrightarrow \subseteq$
+
+Заметим также, что $|\poset| \leq 2^n$
+
+\begin{rem}
+Объединением подмножеств по элементам пустого множества будем считать пересечение всех подмножеств $S_i$.
+
+$\displaystyle \bigcup \limits _{i \in \emptyset}S_i = S_1 \cap S_2 \cap \dots \cap S_n $
+\end{rem}
+
+Рассмотрим $P_1, P_2 \in \poset $. Как посчитать $\mu ( P_1, P_2 )$ ?
+
+$\displaystyle
+P_1 = \bigcup \limits _{i \in I_1} S_i, \quad P_2 = \bigcup \limits _{i \in I_2} S_i$
+
+Правильный ответ на этот вопрос --- $\mu ( P_1, P_2 ) = (-1) ^ {|I_1| - |I_2|} $. Обоснуем это.
+
+
+Введем функции $f(P)$ и $ g(P) $.
+
+$f(P) = |P|$
+
+$g(P) = |\{x: x \in P \& x \notin P'\prec P \}|$
+
+То есть, $g(P)$ показывает, сколько элементов из $P$ не являются элементами одного из строгих предшественников $P$.
+
+Очевидно, что эти две функции связаны между собой следующим образом:
+
+$\displaystyle
+f(P) = \sum \limits _{P' \preceq P} g(p) $
+
+
+Если мы применим формулу Мёбиуса, то получаем:
+
+$\displaystyle
+g(P) = \sum \limits _{P' \preceq P} \mu(P', P) g(P')$
+
+Возьмём $P = S_1 \cap \dots \cap S_n$. 
+Очевидно, что $g(P) = 0$. Тогда:
+
+$\displaystyle
+0 = \sum \limits _{P' \preceq P} (-1)^{|I(P')|}|P'|$
+
+$|I(P')|$ --- количество элементов пересечений, составляющих $P'$
+
+
+Рассмотрим отдельно слагаемое, где $P' = P$. $I(P) = \emptyset, |I| = 0$. Вынесем один член из суммы
+
+$\displaystyle
+0 = \sum \limits _{P' \preceq P} (-1)^{|I(P')|}|P'| = |S_1 \cup \dots \cup S_n| + \sum \limits _{P' \prec P} (-1)^{|I(P')|}|P'| $
+
+$\displaystyle 
+\begin{aligned}
+|S_1 \cup \dots \cup S_n| &= \sum \limits _{P' \prec P} (-1)^{|I(P')|+1}|P'| \\
+ & = \sum \limits _{i=1} ^n \sum \limits _{I: |I| = i} (-1)^{|I(P')|+1}|\bigcap \limits _{j \in I} S_j|
+ \end{aligned} $
+ 
+
+Мы получили формулу включений-исключений в явном виде.
+
+
+\section{Асимптотики для биномиальных коэффициентов}
+\begin{thm}
+$
+C_n^0 < C_n^1 < \dots < C_n^{\lfloor  n/2\rfloor} \geq C_n^{\lfloor n/2\rfloor + 1} $
+\end{thm}
+\begin{rem}
+А если экстраполировать график из значений C, получится график нормального распределения.
+\end{rem}
+
+\begin{thm}
+\begin{itemize}
+\item
+$C^n_{2n} < 4^n$, то есть любой из биномиальных коэффициентов $C^i_{2n}$ меньше $4^n$, ведь это их сумма!
+\item
+$\displaystyle
+C^n_{2n} > \frac {4^n} {2n+1}$, так как всех биномиальных коэффициентов $2n+1$ штук.
+\end{itemize}
+\end{thm}
+
+Эти неравенства легко получить, но они малоинформативны.
+
+\begin{stirling}
+\[\displaystyle 
+n! \sim \sqrt{2 \pi n} \bigg (\frac n e \bigg) ^n  
+\]
+\end{stirling}
+
+
+Проведём различные оценки.
+
+
+
+$ C^n_{2n} \sim \frac 
+	{\sqrt {4 \pi n} \bigg(\displaystyle\frac {2n} e \bigg)^{2n}} 
+	{\bigg( \sqrt {2 \pi n} \bigg (\displaystyle \frac n e \bigg )^n \bigg ) ^2 } = \frac {4^n} {\sqrt{\pi n}}
+$
+
+Человек, знающий формулу Стирлинга, впадает в искушение применять её чаще, чем она способна дать хорошие результаты. Попробуем сделать другие оценки.
+
+\begin{enumerate}
+
+\item
+$\displaystyle C^k_n 
+ =\frac {n!} {k! (n-k)!} = \frac {n(n-1) \dots (n-k+1)} {k!}= \\
+	=\frac {n^k} k! \bigg(1-\frac 1 n \bigg) \bigg(1 - \frac 2 n \bigg) \dots\bigg(1 - \frac {k-1} n\bigg) =\\
+ =\frac {n^k} {k!} \exp \bigg ( ln  \bigg((1-\frac 1 n) (1 - \frac 2 n ) \dots (1 - \frac {k-1} n) \bigg) \bigg) \leq\\
+ \leq \frac {n^k} {k!} \exp \bigg( - \frac 1 n - \frac 2 n - \dots - \frac {k-1} n \bigg) = \frac {n^k} {k!} e^{- \frac {k(k-1)} {2n} }
+  $
+  
+\begin{rem}
+Заметим, что в показателе экспоненты появилось $\displaystyle \frac {k^2} 2$, как и в функции плотности вероятности для нормального распределения!
+\end{rem}
+
+\item $\displaystyle  
+C^k_n = \frac {n^k} {k!} \exp \bigg( - \frac 1 n - \frac 2 n - \dots - \frac {k-1} n + O\bigg ( 
+\underbrace{
+\frac 1 {n^2} + \frac 4 {n^2} + \dots + \frac {(k-1)^2} {n^2}
+  \bigg )}
+  _{\displaystyle \frac {k^3} {n^2}}
+   \bigg) 
+  $
+
+\begin{cor}
+Если $k = o(\sqrt{n}) $, то $\displaystyle C^k_n \sim \frac {n^k} {k!}$
+\end{cor}
+\item
+$\displaystyle
+\frac {C^{^n /_2-x}_n} {C^{^n /_2}_n}= \frac {n!} {\displaystyle\bigg(\frac n 2 - x\bigg)!\bigg(\frac n 2+x\bigg)!} \frac {\displaystyle \bigg ( \frac n 2 \bigg)! \bigg( \frac n 2 \bigg)!} {n!} = \frac {\displaystyle \frac n 2 \bigg ( \frac n 2 - 1\bigg ) \dots \bigg( \frac n 2 - x +1 \bigg)} {\displaystyle \bigg ( \frac n 2 + 1\bigg) \bigg(\frac n 2 + 1\bigg) \bigg( \frac n 2 + 2 \bigg) \dots \bigg ( \frac n 2 + x \bigg )} $
+
+Сократим на $\frac n 2 $:
+
+$
+\frac {\displaystyle\bigg ( 1- \frac 2 n \bigg ) \bigg ( 1 - \frac 4 n \bigg) \dots \bigg ( 1 - \frac {2(x-1)} n \bigg)} {\displaystyle \bigg (1 + \frac 2 n \bigg ) \bigg (1 + \frac 4 n\bigg) \dots \bigg ( 1 + \frac {2x} n \bigg )} = \exp \bigg(  -\frac {2x (x-1)} {2n} - \frac {2x(x+1)} {2n} + O\bigg(\frac {x^3} {n^2}\bigg) \bigg) = \\
+= e^ {\displaystyle - \frac {2x^2} n +  O\bigg(\frac {x^3} {n^2}\bigg)}
+$
+
+\begin{cor}
+Если $x = o(\sqrt{n}) $, то $\displaystyle C^{\displaystyle^n /_2-x}\sim C^{\displaystyle^n /_2}$
+\end{cor}
+\end{enumerate}
+\newcommand\realset{\mathbb{R}}
+\begin{thm}
+Пусть $a > 1, a \in \realset$. Тогда $ C ^n _ {[an]} = \bigg ( \frac {a ^a} {(a-1)^{a-1}} + o(1)\bigg)^n$
+\end{thm}
+
+\begin{rem}
+$\bigg(C+ o(1) \bigg) ^n, c > 1$ --- подобно ли это выражение $C^n $? Очевидно, нет:
+
+$\bigg (2 + \frac 1 {\sqrt n} \bigg ) ^ n  = 2^n \underbrace {\bigg(1+\frac 1 {2 \sqrt n } \bigg )} _{\displaystyle \approx e^{^{\sqrt n}} / _2}$
+
+\end{rem}
+
+
+\begin{rem} Пусть $P(n)$ --- произвольная функция, не слишком быстро растущая или убывающая (медленнее любой экспоненты).
+
+\[ P \sim \pm e ^ {o(n)} \Rightarrow  P(n)(C + o(1) )^n = (c + o(1) ) ^n \]
+
+Обратите внимание, $o(1) $ в левой и правой частях формулы внутри себя содержат различные функции!
+\end{rem}
+
+\begin{proof}
+$C^n_{[an]} = \frac {[an]!} {n!([an]-n)!} \sim P_1(n) \frac {\displaystyle \bigg ( \frac {[an]} e \bigg ) ^ {[an]}} {\displaystyle\bigg( \frac n e \bigg) ^n \bigg ( \frac {[an]-n} e \bigg ) ^ {[an]-n}}  $
+
+Нам хотелось бы избавиться от взятия целой части. Покажем, что мы можем заменить $P_1$ на какую-то другую функцию, тоже изменяющуюся не быстрее экспоненты, и при этом избавиться от взятия целой части. Для этого упростим выражение по частям:
+
+$[an]^{[an]} = (an - \epsilon)^{an-\epsilon}  = (an)^{an-\epsilon} \underbrace {\bigg(1- \frac \epsilon {an} \bigg) ^ {an - \epsilon} }
+_{\text{возьмём за } P_2(n)} = P_3(n) (an)^{an}, \quad \epsilon \in [0,1] $
+
+Это выражение уже годится на роль $P_2(n)$, поскольку убывает или возрастает точно не экспоненциально, а медленнее. 
+
+$(an)^{-\epsilon} $ тоже изменяется медленнее экспоненты, поэтому мы можем составить из этого выражения и $P_2 $ новую функцию $P_3$
+
+Вернёмся к исходному выражению. Со знаменателем можно проделать аналогичные действия. Так мы получим:
+
+$C^n_{[an]} = P_4(n) \frac {(an)^{an}} { n^n (an - n)^{an-n}} = P_4(n) \bigg ( \frac {a^a} {(a-1)^{a-1}} \bigg ) ^n = \bigg( \frac {a^a} {(a-1)^{a-1}} + o(1) \bigg )^n$
+\end{proof}
+
+\begin{cor}
+Пусть $a \in \realset, b \leq \frac a 2$. Тогда:
+
+$\sum \limits _{k=0} ^{[b_n]} C^k_{[an]} = \bigg( \frac  {a^a} {b^b(a-b)^{a-b}} + o(1)\bigg ) ^n $
+\end{cor}
+\begin{proof}
+Действительно, рассмотрим максимальное слагаемое из суммы. В ходе аналогичных доказательству выше рассуждений мы приходим к:
+
+$ C^{[b_n]}_{[an]} = \bigg( \frac  {a^a} {b^b(a-b)^{a-b}} + o(1)\bigg )^n $
+
+Отличие всей суммы от максимального слагаемого --- не более чем в число слагаемых раз. 
+
+$C^{[b_n]}_{[an]} \leq \Sigma \leq [b_n] \times  C^{[b_n]}_{[an]} $
+Эта разность вполне вбирается в себя $o(1)$.
+\end{proof}
+
+\begin{thm}
+Пусть $n = n_1 + \dots + n_k, \forall i: n_i \sim a_i n, a_i \in (0,1)$
+Тогда:
+
+$ P(n_1, \dots, n_k) = \bigg ( \frac 1 {a_1^ {a_1} a_2 ^ {a_2} \dots a_k^{a_k} } + o(1) \bigg) $
+\end{thm}
+
+\begin{rem}
+Пусть $p_1 , \dots, p_k, \quad \sum p_i = 1$ --- набор вероятностей.
+
+$H(p_1, \dots, p_k) = - \sum \limits _{i=1} ^k p_i \ln p_i$ --- выражение для энтропии.
+
+Как мы можем заметить:
+
+$ \frac 1 {a_1^ {a_1} a_2 ^ {a_2} \dots a_k^{a_k} }  = e ^ {H(a_1, \dots, a_k) }$
+\end{rem}
+
+\begin{task}
+Рассмотрим систему неравенств:
+
+$\begin{cases}
+p^3 \leq x(1-x) ^{3n} (1-y)^{C^t_n} \\
+(1-p)^{C^2_t} \leq y(1-x) ^{\frac  {nt^2 } 2 } (1-y)^{C^t_n}
+\end{cases}
+$
+
+Здесь:
+
+$p= p(t) \in (0,1) $
+
+$x = x(t) \in (0,1)$
+
+$y = y(t) \in (0,1)$
+
+$n = n(t) \in \naturalset, t\in \naturalset$
+
+Найдите для каждого $t$ максимальное $n$ такое, что существуют  $p$,$x$,$y$ такие, что система выполняется. Иными словами, надо найти $n(t)$ максимально быстрорастущую с точностью до константы, такую, для которой можно подобрать $p$,$ x$ и $y$, удовлетворяющие системе.
+\end{task}
+
+%lection 2 ends
